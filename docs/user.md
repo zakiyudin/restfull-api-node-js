@@ -5,6 +5,9 @@
 |:---:|:---|:---:|
 |POST|_/api/users_|REGISTER|
 |POST|_/api/users/login_|LOGIN|
+|PATCH|_/api/users/current_|UPDATE USERS|
+|GET|_/api/users/_|GET USERS|
+|DELETE|_/api/users/logout_|LOGOUT|
 
 
 
