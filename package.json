@@ -1,0 +1,17 @@
+{
+  "name": "restfull-api",
+  "version": "1.0.0",
+  "description": "belajar membuat restfull api",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "restfullapi",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "kamel",
+  "license": "ISC",
+  "type": "module"
+}
