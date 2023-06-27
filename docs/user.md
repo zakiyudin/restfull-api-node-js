@@ -121,6 +121,8 @@
 ## **LOGOUT**
 
 - **DELETE** - _/api/users/logout_
+- **HEADERS :**
+  - Authorization : Token
 - **Response Body Success**
   ```json
   {
