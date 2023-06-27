@@ -3,7 +3,7 @@
 |method|endpoint|Ket|
 |:---:|:---|:---:|
 |POST|_/api/contacts_|CREATE|
-|PATCH|_/api/contacts/:id_|UPDATE|
+|PUT|_/api/contacts/:id_|UPDATE|
 |GET|_/api/contacts/:id_|GET|
 |GET|_/api/contacts/_|SEARCH|
 |DELETE|_/api/contacts/:id_|REMOVE|
@@ -42,7 +42,7 @@
   ```
 
 ## **Update Contact**
-- **PATCH** - _/api/contacts/:id_
+- **PUT** - _/api/contacts/:id_
 - **Header**
   -  **Authorization** : _token_
 - **Request Body**
@@ -77,15 +77,7 @@
 - **GET** - _/api/contacts/:id_
 - **Header**
   -  **Authorization** : _token_
-- **Request Body**
-  ```json
-  {
-    "full_name" : "Zakiyudin Kamil Fikri Edit",
-    "nick_name" : "Kamil Edit",
-    "email" : "zakikamil@gmail.com",
-    "phone" : "087657412312"
-  }
-  ```
+
 - **Response Body Success**
   ```json
   {
