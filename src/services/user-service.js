@@ -1,5 +1,5 @@
 import { prismaClient } from "../app/databasel.js"
-import errorResponse from "../errors/error-response.js"
+import { ResponseError } from "../errors/response-error.js"
 import { userRegistrationSchema } from "../validations/user-validation.js"
 import { validate } from "../validations/validate.js"
 import bcrypt from "bcrypt"
@@ -14,20 +14,18 @@ const register = async (request) => {
     })
 
     if (userCount === 1) {
-        throw new errorResponse(400, 'Bad Request')
+        throw new ResponseError(400, 'username already exixts')
     }
 
     userReg.password = await bcrypt.hash(userReg.password, 10)
 
-    const result = prismaClient.user.create({
+    return prismaClient.user.create({
         data: userReg,
         select: {
             username: true,
             name: true
         }
     })
-
-    return result
 }
 
 export default {

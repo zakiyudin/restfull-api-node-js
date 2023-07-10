@@ -1,19 +1,19 @@
-import errorResponse from "../errors/error-response.js"
+import { ResponseError } from "../errors/response-error.js"
 
 const errorMiddleware = async (err, req, res, next) => {
-    if(!err)  {
-        next()
+    if(!err) {
+        next
         return
     }
-    
-    if (err instanceof errorResponse) {
+
+    if (err instanceof ResponseError) {
         res.status(err.status).json({
-            error: err.message
+            errors: err.message
         }).end()
     } else {
         res.status(500).json({
-            error: err.message
-        })
+            errors: err.message
+        }).end()
     }
 }
 
