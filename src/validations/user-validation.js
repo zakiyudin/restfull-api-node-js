@@ -6,6 +6,12 @@ const userRegistrationSchema = Joi.object({
     name: Joi.string().max(100).required(),
 })
 
+const userLoginSchema = Joi.object({
+    username: Joi.string().max(100).required(),
+    password: Joi.string().max(100).required()
+})
+
 export {
-    userRegistrationSchema
+    userRegistrationSchema,
+    userLoginSchema
 }

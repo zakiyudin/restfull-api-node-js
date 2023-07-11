@@ -1,7 +1,9 @@
 import { ResponseError } from "../errors/response-error.js"
 
-const validate = (schema, request) => {
-    const result = schema.validate(request)
+const validation = (schema, request) => {
+    const result = schema.validate(request, {
+        abortEarly: false
+    })
     
     if (result.error) {
         // console.log("error");
@@ -12,5 +14,5 @@ const validate = (schema, request) => {
 }
 
 export {
-    validate
+    validation
 }
