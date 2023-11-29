@@ -1,0 +1,12 @@
+openapi: '3.0.2'
+info:
+  title: RESTFULL-API-BELAJAR
+  version: '1.0'
+servers:
+  - url: https://192.168.15.50/v1
+paths:
+  /test:
+    get:
+      responses:
+        '200':
+          description: OK

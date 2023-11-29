@@ -5,7 +5,7 @@
 |:---:|:---|:---:|
 |POST|_/api/users_|REGISTER|
 |POST|_/api/users/login_|LOGIN|
-|PUT|_/api/users/current_|UPDATE USERS|
+|PATCH|_/api/users/current_|UPDATE USERS|
 |GET|_/api/users/_|GET USERS|
 |DELETE|_/api/users/logout_|LOGOUT|
 
@@ -70,14 +70,14 @@
 
 ## **UPDATE USER**
 
-- **PUT** - _/api/users/current_
+- **PATCH** - _/api/users/current_
 - **HEADERS :**
   - Authorization : Token
 - **Request Body**
   ```json
   {
-    "name" : "Zakiyudin Kamil Fikri Edit",
-    "password" : "rahasia123"
+    "name" : "Zakiyudin Kamil Fikri Edit", //OPTIONAL
+    "password" : "rahasia123" //OPTIONAL
   }
   ```
 - **Response Body Success**

@@ -1,3 +1,4 @@
+import { logger } from "../app/logging.js"
 import userService from "../services/user-service.js"
 
 const registration = async (req, res, next) => {
@@ -18,11 +19,37 @@ const login = async (req, res, next) => {
 
         console.log(result);
         res.status(200).json({
-            data: {
-                username: result.username,
-                name: result.name,
-                token: result.token
-            }
+            data: result
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const getUsername = async (req, res, next) => {
+    try {
+        const username = req.user.username
+        const result = await userService.getUser(username)
+
+        logger.info(result)
+
+        res.status(200).json({
+            data: result
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const update = async (req, res, next) => {
+    try {
+        const username = req.user.username
+        const request = req.body
+        request.username = username
+
+        const result = await userService.updateUser(request)
+        res.status(200).json({
+            data: result
         })
     } catch (error) {
         next(error)
@@ -31,5 +58,7 @@ const login = async (req, res, next) => {
 
 export default {
     registration,
-    login
+    login,
+    getUsername,
+    update
 }

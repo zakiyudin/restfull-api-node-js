@@ -11,7 +11,17 @@ const userLoginSchema = Joi.object({
     password: Joi.string().max(100).required()
 })
 
+const getUsernameValidation = Joi.string().max(100).required()
+
+const updateUsernameValidation = Joi.object({
+    username: Joi.string().max(100).required(),
+    password: Joi.string().max(100).optional(),
+    name: Joi.string().max(100).optional()
+})
+
 export {
     userRegistrationSchema,
-    userLoginSchema
+    userLoginSchema,
+    getUsernameValidation,
+    updateUsernameValidation
 }
