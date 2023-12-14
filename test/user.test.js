@@ -227,6 +227,38 @@ describe('PATCH /api/users/current', () => {
     })
 })
 
+describe('DElETE /api/user/logout', () => {
+    beforeEach(async () => {
+        await createTestUser()
+      })
+    
+      afterEach(async () => {
+        await removeTestUser()
+      })
+
+  it('should can logout', async () => {
+    const result = await supertest(web)
+        .delete('/api/users/logout')
+        .set('Authorization', 'test')
+
+    expect(result.status).toBe(200)
+    expect(result.body.data).toBe("OK")
+
+    const user = await getUserTest()
+    expect(user.token).toBeNull()
+  })
+
+  it('should reject invalid token', async () => {
+    const result = await supertest(web)
+        .delete('/api/users/logout')
+        .set('Authorization', 'error')
+
+    expect(result.status).toBe(401)
+
+  })
+})
+
+
 
 
 
